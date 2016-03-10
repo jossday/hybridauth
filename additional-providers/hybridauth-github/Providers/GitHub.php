@@ -116,4 +116,14 @@ class Hybrid_Providers_GitHub extends Hybrid_Provider_Model_OAuth2
 		}
 		return $contacts;
 	}
+
+	/**
+	* load the Github user's repositories
+	*/
+
+	function getUserRepos()
+	{
+		$data = $this->api->api( "user/repos" );
+		return $data; //this is an array so in order to get properties of repos (id, name, ...) you have to do a foreach loop on $data.
+	}
 }
